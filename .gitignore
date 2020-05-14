@@ -20,3 +20,5 @@ pyinstaller/
 .tox
 extensions/*.c
 .coverage
+.nox/
+coverage.xml
