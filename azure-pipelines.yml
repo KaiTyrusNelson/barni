@@ -54,6 +54,8 @@ jobs:
     displayName: 'noxtest'
     
 - job: TESTWINDOWS
+  variables:
+    TEMP: "d:\local\Temp"
   pool:
     vmImage: 'vs2017-win2016'
   strategy:
@@ -73,7 +75,7 @@ jobs:
       pip install nox
       pip install cython
     displayName: 'Install dependencies'
-
+  - script: echo %TEMP%
   - script: |
       nox --sessions tests-$(python.version)
     displayName: 'noxtest'

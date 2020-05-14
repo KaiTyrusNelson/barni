@@ -61,8 +61,9 @@ class EnergyScaleTestCase(unittest.TestCase):
     def test_toXml(self):
         """ Write and read to temporaty file and compare
         """
-        os.makedirs("build/test", exist_ok=True)
-        with tempfile.NamedTemporaryFile(dir="build/test") as fp:
+        tmp = os.environ.get("TEMP", "build/test")
+        os.makedirs(tmp, exist_ok=True)
+        with tempfile.NamedTemporaryFile(dir=tmp) as fp:
             self.energy_scale.write(fp.name)
             es = loadXml(fp.name)
             self.assertSequenceEqual(tuple(es.getEdges()), tuple(self.energy_scale.getEdges()))
