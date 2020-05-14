@@ -55,7 +55,7 @@ jobs:
     
 - job: TESTWINDOWS
   variables:
-    TEMP: "d:\local\Temp"
+    TEMP: 'd:\local\Temp'
   pool:
     vmImage: 'vs2017-win2016'
   strategy:
